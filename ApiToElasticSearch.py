@@ -28,25 +28,11 @@ if "OUT.ES" in config:
         'Content-Type': 'application/json;charset=UTF-8'
     }
 
-
     # output condition
     if action == 'index':
         body: dict = req.json()
         print(body)
         hosts = "{}/{}/{}".format(hosts, index, doc_type)
         response = requests.post(url=hosts, json=body, headers=headers)
-
-        print(response.json())
-        print(type(response))
-
-
-
-
-
-
-
-print(req.json())
-print(type(req.json()))
-
 
 
