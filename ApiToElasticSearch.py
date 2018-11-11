@@ -15,6 +15,20 @@ if "IN.API" in config:
 if api_method == 'GET':
     req = requests.get(api_url)
 
+elif api_method == 'POST':
+    headers = {
+        # 'Authorization': '',
+        # 'access-token': '',
+        'Content-Type': 'application/json;charset=UTF-8'
+    }
+    data1 = config['IN.API']['POST_JSON_DATA1']
+    # data2 = config['IN.API']['POST_JSON_DATA2']
+    json_data: dict = {
+        "key": data1
+        # "key2": data2
+    }
+    req = requests.post(api_url, json=json_data, headers=headers)
+
 # info: Output setting for Elasticsearch
 if "OUT.ES" in config:
     import datetime
